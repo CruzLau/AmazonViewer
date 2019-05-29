@@ -30,9 +30,9 @@ public class Movie extends Film implements IVisualizable {
          return timeViewed;
      }
      
-     public void setTimeViewed(int timeViewed){
-         this.timeViewed=timeViewed;
-     }
+     public void setTimeViewed(int timeViewed) {
+		this.timeViewed = timeViewed;
+	}
      
      
       @Override
@@ -50,8 +50,8 @@ public class Movie extends Film implements IVisualizable {
 
     @Override
     public void stopToSee(Date dateI, Date dateF) {
-        if (dateF.getSeconds() > dateI.getSeconds()) {
-            setTimeViewed(timeViewed);
+        if (dateF.getTime() > dateI.getTime()) {
+            setTimeViewed((int)(dateF.getTime() - dateI.getTime()));
         }else{
             setTimeViewed(0);
         }
