@@ -1,6 +1,7 @@
 
 package amazonviewer;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import model.Movie;
@@ -12,12 +13,7 @@ public class AmazonViewer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Movie movie = new Movie("Coco","Animation","",120,(short)2017);
-        System.out.println(movie.toString()); //de donde proviene el objeto movie y su dirección de memoria
-        
-        
-        //showMenu();   
+        showMenu();   
     }
     
     
@@ -75,9 +71,17 @@ public class AmazonViewer {
     
     public static void showMovies(){
         int exit = 0;
+        ArrayList<Movie>movies = Movie.makeMoviesList();
+
         do {
             System.out.println("");
             System.out.println(":: MOVIES ::");
+            System.out.println("");
+            for (int i = 0; i < movies.size(); i++) {
+                System.out.println(i+1 + "." + movies.get(i).getTitle() + "Visto: " + movies.get(i).isViewed() );
+            }
+            
+            System.out.println("0. Regresar el menú");
             System.out.println("");
         } while (exit!=0);
         
